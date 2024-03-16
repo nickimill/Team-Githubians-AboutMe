@@ -1,0 +1,999 @@
+{
+	"info": {
+		"_postman_id": "232230d0-b4ea-4b3a-9bec-d2b3e7300e3e",
+		"name": "STSTStudentCourse",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "33465829"
+	},
+	"item": [
+		{
+			"name": "Get All Todo Entries",
+			"item": [
+				{
+					"name": "Get All Todo Entries",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Response status should be 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"pm.test(\"Status code name should have an OK string\", function () {",
+									"    pm.expect(pm.response.to.have.status(\"OK\"));",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://demo.fusio-project.org/index.php",
+							"protocol": "https",
+							"host": [
+								"demo",
+								"fusio-project",
+								"org"
+							],
+							"path": [
+								"index.php"
+							],
+							"query": [
+								{
+									"key": "",
+									"value": "",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Get All Entries",
+			"item": [
+				{
+					"name": "Get All Entries",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var jsonData = pm.response.json();\r",
+									"\r",
+									"\r",
+									"pm.environment.set('linksrel', jsonData.links[0].rel);\r",
+									"pm.environment.set('linksrel', jsonData.links[1].rel);\r",
+									"pm.environment.set('linkshref', jsonData.links[0].href);\r",
+									"pm.environment.set('linkshref', jsonData.links[1].href);\r",
+									"pm.environment.set('linkshref', jsonData.links[7].href);\r",
+									"pm.environment.set('linksrel', jsonData.links[7].rel);\r",
+									"pm.environment.set('appsdeveloper', jsonData.apps.developer);\r",
+									"pm.environment.set('appsfusio', jsonData.apps.fusio);\r",
+									"pm.environment.set('appsredoc', jsonData.apps.redoc);\r",
+									"\r",
+									"pm.test(\"Status code should be 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"pm.test(\"Status code name should be OK string\", function () {\r",
+									"    pm.response.to.have.status(\"OK\");\r",
+									"});\r",
+									"\r",
+									"console.log(jsonData)\r",
+									"console.log(jsonData.apiVersion)\r",
+									"console.log(jsonData.title)\r",
+									"console.log(jsonData.paymentCurrency)\r",
+									"console.log(jsonData.apps.developer)\r",
+									"console.log(jsonData.apps.fusio)\r",
+									"console.log(jsonData.apps.redoc)\r",
+									"console.log(jsonData.links)\r",
+									"\r",
+									"pm.test(\"confirm that apiVersion is 7.2.5.0\", function () {\r",
+									"        pm.expect(jsonData.apiVersion).to.eql(\"7.2.5.0\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"confirm that title is Fusio\", function () {\r",
+									"        pm.expect(jsonData.title).to.eql(\"Fusio\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"confirm that paymentCurrency is EUR\", function () {\r",
+									"    pm.expect(jsonData.paymentCurrency).to.eql(\"EUR\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Body matches string\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"authorization\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Body matches string\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"backend\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Body matches string\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"system\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Body matches string\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"consumer\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Body matches string\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"default\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Confirm that scopes is present\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"scopes\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Confirm that links is present\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"links\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Search for authorization in categories\", function () {\r",
+									"        pm.expect(jsonData.categories[0]).to.eql(\"authorization\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Search for system in categories\", function () {\r",
+									"        pm.expect(jsonData.categories[1]).to.eql(\"system\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Search for consumer in categories\", function () {\r",
+									"        pm.expect(jsonData.categories[2]).to.eql(\"consumer\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Search for backend in categories\", function () {\r",
+									"        pm.expect(jsonData.categories[3]).to.eql(\"backend\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Search for default in categories\", function () {\r",
+									"        pm.expect(jsonData.categories[4]).to.eql(\"default\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Verify the value for scopes\", function () {\r",
+									"        pm.expect(jsonData.scopes[0]).to.eql(\"default\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Verify the value of developer\", function () {\r",
+									"        pm.expect(jsonData.apps.developer).to.eql(\"https://demo.fusio-project.org/apps/developer\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Verify the value of developer\", function () {\r",
+									"        pm.expect(jsonData.apps.fusio).to.eql(\"https://demo.fusio-project.org/apps/fusio\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Verify the value of developer\", function () {\r",
+									"        pm.expect(jsonData.apps.redoc).to.eql(\"https://demo.fusio-project.org/apps/redoc\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Confirm the value of rel\", function () {\r",
+									"        pm.expect(jsonData.links[0].rel).to.eql(\"root\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Confirm the value of href\", function () {\r",
+									"        pm.expect(jsonData.links[0].href).to.eql(\"https://demo.fusio-project.org/\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Confirm the value of rel\", function () {\r",
+									"        pm.expect(jsonData.links[1].rel).to.eql(\"openapi\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Confirm the value of href\", function () {\r",
+									"        pm.expect(jsonData.links[1].href).to.eql(\"https://demo.fusio-project.org/system/generator/spec-openapi\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Confirm the value of rel\", function () {\r",
+									"        pm.expect(jsonData.links[2].rel).to.eql(\"typeapi\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Confirm the value of href\", function () {\r",
+									"        pm.expect(jsonData.links[2].href).to.eql(\"https://demo.fusio-project.org/system/generator/spec-typeapi\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Confirm the value of rel\", function () {\r",
+									"        pm.expect(jsonData.links[3].rel).to.eql(\"route\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Confirm the value of href\", function () {\r",
+									"        pm.expect(jsonData.links[3].href).to.eql(\"https://demo.fusio-project.org/system/route\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Confirm the value of rel\", function () {\r",
+									"        pm.expect(jsonData.links[4].rel).to.eql(\"health\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Confirm the value of href\", function () {\r",
+									"        pm.expect(jsonData.links[4].href).to.eql(\"https://demo.fusio-project.org/system/health\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Confirm the value of rel\", function () {\r",
+									"        pm.expect(jsonData.links[5].rel).to.eql(\"oauth2\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Confirm the value of href\", function () {\r",
+									"        pm.expect(jsonData.links[5].href).to.eql(\"https://demo.fusio-project.org/authorization/token\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Confirm the value of rel\", function () {\r",
+									"        pm.expect(jsonData.links[6].rel).to.eql(\"whoami\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Confirm the value of href\", function () {\r",
+									"        pm.expect(jsonData.links[6].href).to.eql(\"https://demo.fusio-project.org/authorization/whoami\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Confirm the value of rel\", function () {\r",
+									"        pm.expect(jsonData.links[7].rel).to.eql(\"about\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Confirm the value of href\", function () {\r",
+									"        pm.expect(jsonData.links[7].href).to.eql(\"https://www.fusio-project.org\");\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://demo.fusio-project.org/index.php/",
+							"protocol": "https",
+							"host": [
+								"demo",
+								"fusio-project",
+								"org"
+							],
+							"path": [
+								"index.php",
+								""
+							],
+							"query": [
+								{
+									"key": "",
+									"value": "",
+									"disabled": true
+								}
+							]
+						},
+						"description": "https://demo.fusio-project.org/index.php/"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Get entry per ID",
+			"item": [
+				{
+					"name": "Get entry per ID - Valid ID",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://demo.fusio-project.org/index.php",
+							"protocol": "https",
+							"host": [
+								"demo",
+								"fusio-project",
+								"org"
+							],
+							"path": [
+								"index.php"
+							],
+							"query": [
+								{
+									"key": "",
+									"value": "",
+									"disabled": true
+								}
+							]
+						},
+						"description": "https://demo.fusio-project.org/index.php/todo/:todo_id"
+					},
+					"response": []
+				},
+				{
+					"name": "Get entry per ID - Invalid ID(params not using TODO ID)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code should be 1000000\", function () {\r",
+									"    pm.response.to.have.status (200);\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"query": [
+								{
+									"key": "Id",
+									"value": "1000000",
+									"disabled": true
+								}
+							]
+						},
+						"description": "https://demo.fusio-project.org/index.php/todo/:todo_id"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Get Books",
+			"item": [
+				{
+					"name": "Get All Books",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test('Status code is 200', function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"pm.test('Status code name has OK string', function () {\r",
+									"    pm.response.to.have.status(\"OK\");\r",
+									"});\r",
+									"const response = pm.response.json();\r",
+									"//print any kind of variables/message on the screen\r",
+									"\r",
+									"console.log(response[0].id);\r",
+									"pm.environment.set(\"TheRussianid\", response[0].id);\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "5b918e9bafc263b40cb2b35d48c72aabc6849a177be17cd58e0f194e11654fb5",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrlbooks}}/books",
+							"host": [
+								"{{baseUrlbooks}}"
+							],
+							"path": [
+								"books"
+							],
+							"query": [
+								{
+									"key": "",
+									"value": "",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Books by ID",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Should be 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"var jsonData = pm.response.json();\r",
+									"console.log(jsonData)\r",
+									"console.log(jsonData.id)\r",
+									"console.log(jsonData.name)\r",
+									"\r",
+									"pm.test(\"confirm id is 1\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData.id).to.eql(1);\r",
+									"});\r",
+									"pm.test(\"confirm name is The Russian\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData.name).to.eql(\"The Russian\");\r",
+									"});\r",
+									"pm.test(\"confirm author  is James Patterson and James O. Born \", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData.author).to.eql(\"James Patterson and James O. Born\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"confirm type is fiction\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData.type).to.eql(\"fiction\");\r",
+									"});\r",
+									"pm.test(\"confirm price is 12.98\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData.price).to.eql(12.98);\r",
+									"});\r",
+									"\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrlbooks}}/books/:bookId",
+							"host": [
+								"{{baseUrlbooks}}"
+							],
+							"path": [
+								"books",
+								":bookId"
+							],
+							"query": [
+								{
+									"key": "bookId",
+									"value": "1",
+									"disabled": true
+								}
+							],
+							"variable": [
+								{
+									"key": "bookId",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Books by Type",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const response = pm.response.json();\r",
+									"\r",
+									"console.log(response[0].id);\r",
+									"pm.environment.set(\"TheRussian\", \"fiction\");\r",
+									"\r",
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"pm.test(\"Status code name should be OK string\", function () {\r",
+									"    pm.response.to.have.status(\"OK\");\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrlbooks}}/books?type=fiction",
+							"host": [
+								"{{baseUrlbooks}}"
+							],
+							"path": [
+								"books"
+							],
+							"query": [
+								{
+									"key": "type",
+									"value": "fiction"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Place a book order",
+			"item": [
+				{
+					"name": "Place a book order - using book ID",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const response = pm.response.json();\r",
+									"pm.test('Status code is 201', function () {\r",
+									"    pm.response.to.have.status(201);\r",
+									"})\r",
+									"\r",
+									"pm.test('Status code name has string', function () {\r",
+									"    pm.response.to.have.status('Created');\r",
+									"})\r",
+									"\r",
+									"pm.test('order created', function () {\r",
+									"    pm.expect(response.created).to.eql(true);\r",
+									"})\r",
+									"const orderid = pm.response.json();\r",
+									"console.log (orderid.orderId)\r",
+									"//pm.globals.set(\"OrderedId\", orderid.orderId);\r",
+									"pm.environment.set(\"orderid\", (orderid.orderId));\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "5b918e9bafc263b40cb2b35d48c72aabc6849a177be17cd58e0f194e11654fb5",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"bookId\": {{TheRussianid}},\n    \"customerName\": \"Faith\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrlbooks}}/orders",
+							"host": [
+								"{{baseUrlbooks}}"
+							],
+							"path": [
+								"orders"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Get an order",
+			"item": [
+				{
+					"name": "Get all orders",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"pm.test(\"Status code name should be OK string\", function () {\r",
+									"    pm.response.to.have.status(\"OK\");\r",
+									"});\r",
+									" var jsonData = pm.response.json();\r",
+									"pm.test(\"confirm that customerName is Faith\", function () {\r",
+									"    pm.expect(jsonData[0].customerName).to.eql(\"Faith\");\r",
+									"})"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "5b918e9bafc263b40cb2b35d48c72aabc6849a177be17cd58e0f194e11654fb5",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrlbooks}}/orders",
+							"host": [
+								"{{baseUrlbooks}}"
+							],
+							"path": [
+								"orders"
+							],
+							"query": [
+								{
+									"key": "",
+									"value": "",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get an order - using orderID",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "5b918e9bafc263b40cb2b35d48c72aabc6849a177be17cd58e0f194e11654fb5",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrlbooks}}/orders/:orderId",
+							"host": [
+								"{{baseUrlbooks}}"
+							],
+							"path": [
+								"orders",
+								":orderId"
+							],
+							"variable": [
+								{
+									"key": "orderId",
+									"value": "{{orderid}}"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Update an order",
+			"item": [
+				{
+					"name": "Update an order",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 201\", function () {\r",
+									"    pm.response.to.have.status(201);\r",
+									"});\r",
+									"pm.test(\"verify that order is created\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"created\");\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "5b918e9bafc263b40cb2b35d48c72aabc6849a177be17cd58e0f194e11654fb5",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"bookId\": {{TheRussianid}},\n    \"customerName\": \"Faith\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrlbooks}}/orders/",
+							"host": [
+								"{{baseUrlbooks}}"
+							],
+							"path": [
+								"orders",
+								""
+							],
+							"query": [
+								{
+									"key": "",
+									"value": "",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Delete an order",
+			"item": [
+				{
+					"name": "Delete an order",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "5b918e9bafc263b40cb2b35d48c72aabc6849a177be17cd58e0f194e11654fb5",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrlbooks}}/orders/:orderId",
+							"host": [
+								"{{baseUrlbooks}}"
+							],
+							"path": [
+								"orders",
+								":orderId"
+							],
+							"variable": [
+								{
+									"key": "orderId",
+									"value": "{{orderid}}"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Register API Client",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "oauth2",
+					"oauth2": [
+						{
+							"key": "accessTokenUrl",
+							"value": "https://demo.fusio-project.org/",
+							"type": "string"
+						},
+						{
+							"key": "tokenName",
+							"value": "Authority",
+							"type": "string"
+						},
+						{
+							"key": "client_authentication",
+							"value": "header",
+							"type": "string"
+						},
+						{
+							"key": "grant_type",
+							"value": "client_credentials",
+							"type": "string"
+						},
+						{
+							"key": "addTokenTo",
+							"value": "header",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n   \"clientName\": \"Faith\",\n   \"clientEmail\": \"idebiadejoke@gmail.com\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrlbooks}}/api-clients/",
+					"host": [
+						"{{baseUrlbooks}}"
+					],
+					"path": [
+						"api-clients",
+						""
+					],
+					"query": [
+						{
+							"key": "",
+							"value": null,
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get API Status",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code should 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"pm.test(\"status is present\", function () {\r",
+							"    pm.expect(pm.response.text()).to.include(\"status\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrlbooks}}/status",
+					"host": [
+						"{{baseUrlbooks}}"
+					],
+					"path": [
+						"status"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrlbooks",
+			"value": "123"
+		}
+	]
+}
