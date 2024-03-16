@@ -1,0 +1,609 @@
+{
+	"id": "97716e24-d939-48d3-9cdf-c46593d9d0b8",
+	"name": "STSTStudentCourse",
+	"timestamp": "2024-03-16T13:27:24.843Z",
+	"collection_id": "33465829-232230d0-b4ea-4b3a-9bec-d2b3e7300e3e",
+	"folder_id": 0,
+	"environment_id": "33465829-0c81334d-4011-4602-8e2e-2897fb8a72f5",
+	"totalPass": 61,
+	"delay": 0,
+	"persist": true,
+	"status": "finished",
+	"startedAt": "2024-03-16T13:26:41.893Z",
+	"totalFail": 0,
+	"results": [
+		{
+			"id": "a592579d-c09b-459f-93ae-e450ae893ac4",
+			"name": "Get All Todo Entries",
+			"url": "https://demo.fusio-project.org/index.php",
+			"time": 1796,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Response status should be 200": true,
+				"Status code name should have an OK string": true
+			},
+			"testPassFailCounts": {
+				"Response status should be 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Status code name should have an OK string": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				1796
+			],
+			"allTests": [
+				{
+					"Response status should be 200": true,
+					"Status code name should have an OK string": true
+				}
+			]
+		},
+		{
+			"id": "ff2c2016-4ca8-42d7-84ff-9b9ba84ece1e",
+			"name": "Get All Entries",
+			"url": "https://demo.fusio-project.org/index.php/",
+			"time": 293,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code should be 200": true,
+				"Status code name should be OK string": true,
+				"confirm that apiVersion is 7.2.5.0": true,
+				"confirm that title is Fusio": true,
+				"confirm that paymentCurrency is EUR": true,
+				"Body matches string": true,
+				"Confirm that scopes is present": true,
+				"Confirm that links is present": true,
+				"Search for authorization in categories": true,
+				"Search for system in categories": true,
+				"Search for consumer in categories": true,
+				"Search for backend in categories": true,
+				"Search for default in categories": true,
+				"Verify the value for scopes": true,
+				"Verify the value of developer": true,
+				"Confirm the value of rel": true,
+				"Confirm the value of href": true
+			},
+			"testPassFailCounts": {
+				"Status code should be 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Status code name should be OK string": {
+					"pass": 1,
+					"fail": 0
+				},
+				"confirm that apiVersion is 7.2.5.0": {
+					"pass": 1,
+					"fail": 0
+				},
+				"confirm that title is Fusio": {
+					"pass": 1,
+					"fail": 0
+				},
+				"confirm that paymentCurrency is EUR": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Body matches string": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Confirm that scopes is present": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Confirm that links is present": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Search for authorization in categories": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Search for system in categories": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Search for consumer in categories": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Search for backend in categories": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Search for default in categories": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Verify the value for scopes": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Verify the value of developer": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Confirm the value of rel": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Confirm the value of href": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				293
+			],
+			"allTests": [
+				{
+					"Status code should be 200": true,
+					"Status code name should be OK string": true,
+					"confirm that apiVersion is 7.2.5.0": true,
+					"confirm that title is Fusio": true,
+					"confirm that paymentCurrency is EUR": true,
+					"Body matches string": true,
+					"Confirm that scopes is present": true,
+					"Confirm that links is present": true,
+					"Search for authorization in categories": true,
+					"Search for system in categories": true,
+					"Search for consumer in categories": true,
+					"Search for backend in categories": true,
+					"Search for default in categories": true,
+					"Verify the value for scopes": true,
+					"Verify the value of developer": true,
+					"Confirm the value of rel": true,
+					"Confirm the value of href": true
+				}
+			]
+		},
+		{
+			"id": "74f4528f-3324-4bc7-a15f-c649173113aa",
+			"name": "Get entry per ID - Valid ID",
+			"url": "https://demo.fusio-project.org/index.php",
+			"time": 263,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				263
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "8dcc85db-fb76-451c-8edc-566d8b62e579",
+			"name": "Get entry per ID - Invalid ID(params not using TODO ID)",
+			"url": "https://demo.fusio-project.org/index.php/",
+			"time": 261,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code should be 1000000": true
+			},
+			"testPassFailCounts": {
+				"Status code should be 1000000": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				261
+			],
+			"allTests": [
+				{
+					"Status code should be 1000000": true
+				}
+			]
+		},
+		{
+			"id": "7c023394-ccb2-49b3-965f-acb5928f38e2",
+			"name": "Get All Books",
+			"url": "https://simple-books-api.glitch.me//books",
+			"time": 1511,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Status code name has OK string": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Status code name has OK string": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				1511
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Status code name has OK string": true
+				}
+			]
+		},
+		{
+			"id": "f7c52a75-3a84-4728-810a-ae62944599ce",
+			"name": "Get Books by ID",
+			"url": "https://simple-books-api.glitch.me//books/1",
+			"time": 262,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Should be 200": true,
+				"confirm id is 1": true,
+				"confirm name is The Russian": true,
+				"confirm author  is James Patterson and James O. Born ": true,
+				"confirm type is fiction": true,
+				"confirm price is 12.98": true
+			},
+			"testPassFailCounts": {
+				"Should be 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"confirm id is 1": {
+					"pass": 1,
+					"fail": 0
+				},
+				"confirm name is The Russian": {
+					"pass": 1,
+					"fail": 0
+				},
+				"confirm author  is James Patterson and James O. Born ": {
+					"pass": 1,
+					"fail": 0
+				},
+				"confirm type is fiction": {
+					"pass": 1,
+					"fail": 0
+				},
+				"confirm price is 12.98": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				262
+			],
+			"allTests": [
+				{
+					"Should be 200": true,
+					"confirm id is 1": true,
+					"confirm name is The Russian": true,
+					"confirm author  is James Patterson and James O. Born ": true,
+					"confirm type is fiction": true,
+					"confirm price is 12.98": true
+				}
+			]
+		},
+		{
+			"id": "70d2f104-e973-45dd-9eb6-9bd38de72d1a",
+			"name": "Get Books by Type",
+			"url": "https://simple-books-api.glitch.me//books?type=fiction",
+			"time": 1148,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Status code name should be OK string": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Status code name should be OK string": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				1148
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Status code name should be OK string": true
+				}
+			]
+		},
+		{
+			"id": "86a2821b-3696-4c7d-806f-a0d6482278b9",
+			"name": "Place a book order - using book ID",
+			"url": "https://simple-books-api.glitch.me//orders",
+			"time": 427,
+			"responseCode": {
+				"code": 201,
+				"name": "Created"
+			},
+			"tests": {
+				"Status code is 201": true,
+				"Status code name has string": true,
+				"order created": true
+			},
+			"testPassFailCounts": {
+				"Status code is 201": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Status code name has string": {
+					"pass": 1,
+					"fail": 0
+				},
+				"order created": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				427
+			],
+			"allTests": [
+				{
+					"Status code is 201": true,
+					"Status code name has string": true,
+					"order created": true
+				}
+			]
+		},
+		{
+			"id": "42b60308-b01d-4587-85e9-c475514458fc",
+			"name": "Get all orders",
+			"url": "https://simple-books-api.glitch.me//orders",
+			"time": 225,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Status code name should be OK string": true,
+				"confirm that customerName is Faith": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Status code name should be OK string": {
+					"pass": 1,
+					"fail": 0
+				},
+				"confirm that customerName is Faith": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				225
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Status code name should be OK string": true,
+					"confirm that customerName is Faith": true
+				}
+			]
+		},
+		{
+			"id": "2ffacc19-a1a6-4830-a1ff-f0bc2e1c2d5d",
+			"name": "Get an order - using orderID",
+			"url": "https://simple-books-api.glitch.me//orders/sgV3swhLvf_FShN_oeFLC",
+			"time": 845,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				845
+			],
+			"allTests": [
+				{
+					"Status code is 200": true
+				}
+			]
+		},
+		{
+			"id": "de6672c6-ec0f-4f20-b2e9-f46a2cfbb1b4",
+			"name": "Update an order",
+			"url": "https://simple-books-api.glitch.me//orders/",
+			"time": 525,
+			"responseCode": {
+				"code": 201,
+				"name": "Created"
+			},
+			"tests": {
+				"Status code is 201": true,
+				"verify that order is created": true
+			},
+			"testPassFailCounts": {
+				"Status code is 201": {
+					"pass": 1,
+					"fail": 0
+				},
+				"verify that order is created": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				525
+			],
+			"allTests": [
+				{
+					"Status code is 201": true,
+					"verify that order is created": true
+				}
+			]
+		},
+		{
+			"id": "42360d95-c118-4a88-9584-4b4fe226f910",
+			"name": "Delete an order",
+			"url": "https://simple-books-api.glitch.me//orders/sgV3swhLvf_FShN_oeFLC",
+			"time": 615,
+			"responseCode": {
+				"code": 204,
+				"name": "No Content"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				615
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "ce9053f6-0784-440e-9787-d92662d5ad52",
+			"name": "Register API Client",
+			"url": "https://simple-books-api.glitch.me//api-clients/",
+			"time": 433,
+			"responseCode": {
+				"code": 409,
+				"name": "Conflict"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				433
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "5596ef0e-7ca1-47cd-a467-e70e5e2597c0",
+			"name": "Get API Status",
+			"url": "https://simple-books-api.glitch.me//status",
+			"time": 418,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code should 200": true,
+				"status is present": true
+			},
+			"testPassFailCounts": {
+				"Status code should 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"status is present": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				418
+			],
+			"allTests": [
+				{
+					"Status code should 200": true,
+					"status is present": true
+				}
+			]
+		}
+	],
+	"count": 1,
+	"totalTime": 9022,
+	"collection": {
+		"requests": [
+			{
+				"id": "a592579d-c09b-459f-93ae-e450ae893ac4",
+				"method": "GET"
+			},
+			{
+				"id": "ff2c2016-4ca8-42d7-84ff-9b9ba84ece1e",
+				"method": "GET"
+			},
+			{
+				"id": "74f4528f-3324-4bc7-a15f-c649173113aa",
+				"method": "GET"
+			},
+			{
+				"id": "8dcc85db-fb76-451c-8edc-566d8b62e579",
+				"method": "GET"
+			},
+			{
+				"id": "7c023394-ccb2-49b3-965f-acb5928f38e2",
+				"method": "GET"
+			},
+			{
+				"id": "f7c52a75-3a84-4728-810a-ae62944599ce",
+				"method": "GET"
+			},
+			{
+				"id": "70d2f104-e973-45dd-9eb6-9bd38de72d1a",
+				"method": "GET"
+			},
+			{
+				"id": "86a2821b-3696-4c7d-806f-a0d6482278b9",
+				"method": "POST"
+			},
+			{
+				"id": "42b60308-b01d-4587-85e9-c475514458fc",
+				"method": "GET"
+			},
+			{
+				"id": "2ffacc19-a1a6-4830-a1ff-f0bc2e1c2d5d",
+				"method": "GET"
+			},
+			{
+				"id": "de6672c6-ec0f-4f20-b2e9-f46a2cfbb1b4",
+				"method": "POST"
+			},
+			{
+				"id": "42360d95-c118-4a88-9584-4b4fe226f910",
+				"method": "DELETE"
+			},
+			{
+				"id": "ce9053f6-0784-440e-9787-d92662d5ad52",
+				"method": "POST"
+			},
+			{
+				"id": "5596ef0e-7ca1-47cd-a467-e70e5e2597c0",
+				"method": "GET"
+			}
+		]
+	}
+}
